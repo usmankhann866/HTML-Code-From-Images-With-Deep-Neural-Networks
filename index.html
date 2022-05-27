@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image To HTML</title>
+
+    <!-- CSS Portion -->
+    <link rel="stylesheet" href="./Styles/styles.css">
+    <link rel="stylesheet" href="./Styles/New folder/Progress.css">
+    <!-- <link rel="stylesheet" href="./styles.scss"> -->
+    <!-- Bootstrap Portion -->
+    <!-- Bootstrap CSS Portion -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Script potion -->
+     <script src="./Script/script.js"></script>
+
+    <!-- Bootstrap Script Portion -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <!-- Humberger Portion -->
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+ </head>
+
+<body >
+  
+    <div class="container-fluid">
+   
+
+<header>
+  <div id="logo">
+    <a href=""><img src="./Images/code img.webp" width="50px" height="50px" alt=""> Logo </a>
+</div>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+      <ul>
+<li><a href="#">Home</a></li>
+<li><a href="./About/About.html">About</a></li>
+<li><a href="./About/About.html #footer-portion">Contect </a> </li>
+</ul>
+</div>
+
+</header>
+
+<div id="main-section">
+<section class="headings">
+
+    <h2 class="head2">
+        Image To HTML Code
+    </h2>
+</section>
+
+<div class="row class-container">
+    <div class="col-lg-6 col-md-10 col-sm-12">
+        <section id="upload">   
+            <form id="file-upload-form" class="uploader" onclick="Uploader()">
+                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+              
+                <label for="file-upload" id="file-drag">
+                  <img id="file-image" src="#" alt="Preview" class="hidden">
+                  <div id="start">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <div>Select a file or drag here</div>
+                    <div id="notimage" class="hidden">Please select an image</div>
+                    <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                  </div>
+                  <div id="response" class="hidden">
+                    <div id="messages"></div>
+                    <progress class="progress" id="file-progress" value="0">
+                      <span>0</span>%
+                    </progress>
+                  </div>
+                </label>
+                <button type="button" id="Generate" class="btn btn-info btn-lg text-center">Generate Code</button>
+              </form>
+            
+            </section>
+    </div>
+
+    <div class="col-lg-6 col-md-10 col-sm-12">
+
+        <section id="htmlCode">
+            <div id="textarea">
+                
+                <textarea placeholder="HTML Code..." id="text"></textarea>
+                <input id="filename"  placeholder="Enter filename..." />
+                <button type="button" id="download" class="btn btn-info btn-lg">Download File</button>
+              </div>
+              
+            </section>
+    </div>
+</div>
+</div>
+
+<!-- Progress Bar -->
+
+<Section id="progress-bar">
+  
+  
+          <div class="progress-bar-wrapper"><h2 class=""> Steps To be Followed </h2></div>
+
+          <script src="./Script/progress.js"></script>
+          <!-- <script src="js/app.js"></script> -->
+  
+  
+</Section>
+
+
+
+<section id="footer">
+    
+<footer class="page-footer font-small blue">
+
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+      <a href="/"> usmankhann866.com</a>
+</footer>
+
+</section>
+
+</div>
+  
+  <!-- download File script -->
+  <script type="text/javascript">
+    function downloadFile(filename, content) {
+      // It works on all HTML5 Ready browsers as it uses the download attribute of the <a> element:
+      const element = document.createElement('a');
+      
+      //A blob is a data type that can store binary data
+      // "type" is a MIME type
+      // It can have a different value, based on a file you want to save
+      const blob = new Blob([content], { type: 'plain/text' });
+    
+      //createObjectURL() static method creates a DOMString containing a URL representing the object given in the parameter.
+      const fileUrl = URL.createObjectURL(blob);
+      
+      //setAttribute() Sets the value of an attribute on the specified element.
+      element.setAttribute('href', fileUrl); //file location
+      element.setAttribute('download', filename); // file name
+      element.style.display = 'none';
+      
+      //use appendChild() method to move an element from one element to another
+      document.body.appendChild(element);
+      element.click();
+      
+      //The removeChild() method of the Node interface removes a child node from the DOM and returns the removed node
+      document.body.removeChild(element);
+    };
+    
+    window.onload = () => {
+      document.getElementById('download').
+      addEventListener('click', e => {
+        
+        //The value of the file name input box
+        const filename = document.getElementById('filename').value;
+        
+        //The value of what has been input in the textarea
+        const content = document.getElementById('text').value;
+        
+        // The && (logical AND) operator indicates whether both operands are true. If both operands have nonzero values, the result has the value 1 . Otherwise, the result has the value 0 .
+        
+        if (filename && content) {
+          downloadFile(filename, content);
+        }
+      });
+    };
+    </script>
+
+</body>
+</html>
